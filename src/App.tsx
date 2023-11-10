@@ -1,11 +1,9 @@
-import Alert from './components/Alert';
+import Button from './components/Button';
 
 function App() {
   return (
     <div>
-      <Alert>
-        Hello word <span>React children props</span>
-      </Alert>
+      <Button  color='danger' onClick={() => console.log('clicked')}>my Button</Button>
     </div>
   );
 }
