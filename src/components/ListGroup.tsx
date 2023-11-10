@@ -1,16 +1,17 @@
 import { useState } from 'react';
 
 interface Props {
-  items: string[],
-  heading: string
+  items: string[];
+  heading: string;
+  onSelectedItem: (item: string) => void;
 }
 
-const ListGroup = ({items, heading}: Props) => {
+const ListGroup = ({ items, heading, onSelectedItem }: Props) => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
     <>
-      <h1>{heading }</h1>
+      <h1>{heading}</h1>
       <ul className="list-group">
         {items.map((item, index) => (
           <li
@@ -20,7 +21,10 @@ const ListGroup = ({items, heading}: Props) => {
                 ? 'list-group-item active'
                 : 'list-group-item'
             }
-            onClick={() => setSelectedIndex(index)}
+            onClick={() => {
+              setSelectedIndex(index);
+              onSelectedItem(item);
+            }}
           >
             {item}
           </li>
