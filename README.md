@@ -16,3 +16,21 @@ contents
 - CSS Modules
 - CSS-In-Js
 - Using CSS libraries
+
+
+
+### css-in-js
+
+
+- Scoped styles
+- all the css & JS/TS code in one place
+- Easier to delete a component
+- Easier to style based on props/state
+
+
+There are differences Libraries
+
+- Styled Components
+- Emotions
+- Polish
+- many more
