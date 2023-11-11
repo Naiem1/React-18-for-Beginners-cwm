@@ -1,16 +1,17 @@
 import { useState } from 'react';
 
 function App() {
-  const [bugs, setBugs] = useState([
-    { id: 1, title: 'bug 1', fixed: false },
-    { id: 2, title: 'bug 2', fixed: false },
-  ]);
-
-
-
+  const [tags, setTags] = useState(['happy', 'cheerful']);
 
   const handleClick = () => {
-    setBugs(bugs.map(bug => bug.id === 1 ? { ...bug, fixed: true } : bug));
+    // Add item
+    setTags([...tags, 'exciting']);
+
+    // Remove an item
+    setTags(tags.filter((tag) => tag !== 'happy'));
+
+    // Update an item
+    setTags(tags.map((tag) => (tag === 'cheerful' ? 'yahoo' : tag)));
   };
   return (
     <div>
