@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Message from './components/Message';
 
 function App() {
   const [game, setGame] = useState({
@@ -31,7 +32,7 @@ function App() {
   const handleClick = () => {
     setCart({
       ...cart,
-      items: cart.map((item) =>
+      items: cart.items.map((item) =>
         item.id === 1 ? { ...item, quantity: item.quantity + 1 } : item
       ),
     });
@@ -39,6 +40,7 @@ function App() {
   return (
     <div>
       <button onClick={handleClick}>Update</button>
+      <Message/>
     </div>
   );
 }
