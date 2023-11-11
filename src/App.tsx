@@ -1,20 +1,31 @@
+import {produce} from 'immer';
 import { useState } from 'react';
 
 function App() {
-  const [tags, setTags] = useState(['happy', 'cheerful']);
+  const [bugs, setBugs] = useState([
+    { id: 1, title: 'bug 1', fixed: false },
+    { id: 2, title: 'bug 2', fixed: false },
+    { id: 3, title: 'bug 3', fixed: false },
+  ]);
 
   const handleClick = () => {
-    // Add item
-    setTags([...tags, 'exciting']);
+    // setBugs(bugs.map((bug) => (bug.id === 1 ? { ...bug, fixed: true } : bug)));
 
-    // Remove an item
-    setTags(tags.filter((tag) => tag !== 'happy'));
+    setBugs(
+      produce((draft) => {
+        const bug = draft.find((bug) => bug.id === 1);
 
-    // Update an item
-    setTags(tags.map((tag) => (tag === 'cheerful' ? 'yahoo' : tag)));
+        if (bug) bug.fixed = true;
+      })
+    );
   };
   return (
     <div>
+      {bugs.map((bug) => (
+        <p key={bug.id}>
+          {bug.title} {bug.fixed ? 'Fixed' : 'new'}
+        </p>
+      ))}
       <button onClick={handleClick}>Update</button>
     </div>
   );
