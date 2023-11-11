@@ -34,3 +34,15 @@ There are differences Libraries
 - Emotions
 - Polish
 - many more
+
+### 5-Managing Component State
+
+**STATE HOOKS:**
+
+- **React update state asynchronously**: Meaning Not immediately update state.
+
+to minimize unnecessary render it batches update applies them all update and render a components.
+
+- **State is stored outside of component:** 
+- **Use hooks at the top level of your component:**
+

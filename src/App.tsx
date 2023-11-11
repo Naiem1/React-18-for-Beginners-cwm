@@ -1,19 +1,12 @@
-import ListGroup from './components/ListGroup/';
+import { useState } from 'react';
 
 function App() {
-  const items = ['React.js', 'Angular.js', 'Veu.js'];
-  const handleSelectedItem = () => {
-    console.log('clicked');
-  };
-  return (
-    <div>
-      <ListGroup
-        heading="Libraries"
-        items={items}
-        onSelectedItem={handleSelectedItem}
-      />
-    </div>
-  );
+  const [person, setPerson] = useState({
+    firstName: '',
+    lastName: '',
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  return <div></div>;
 }
 
 export default App;
